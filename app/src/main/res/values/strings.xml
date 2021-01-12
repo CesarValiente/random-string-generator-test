@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Sample App</string>
+    <string name="give_me_a_new_string">Give me a new String!</string>
+</resources>
