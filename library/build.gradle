@@ -72,7 +72,7 @@ bintray {
     pkg {
         repo = 'RandomStringGenerator'
         name = 'library'
-        userOrg = System.getenv("'bintrayOrg")
+        userOrg = System.getenv("bintrayOrg")
         licenses = ['MIT']
         version {
             name = android.defaultConfig.versionName
