@@ -1,7 +1,7 @@
 # This workflow will build a Java project with Gradle
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-gradle
 
-name: Publish
+name: Build and publish
 
 on:
   push:
@@ -46,12 +46,16 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
-      - task: Gradle@2
-        displayName: 'gradlew bintrayUpload'
-        inputs:
-          gradleWrapperFile: 'gradlew'
-          tasks: 'bintrayUpload'
-          env:
-            bintrayUser: ${{secrets.BINTRAY_USER}}
-            bintrayKey: ${{secrets.BINTRAY_KEY}}
-            bintrayOrg: ${{secrets.BINTRAY_ORG}}
+      - uses: actions/checkout@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+      - name: Bintray publish
+        env:
+          bintrayUser: ${{secrets.BINTRAY_USER}}
+          bintrayKey: ${{secrets.BINTRAY_KEY}}
+          bintrayOrg: ${{secrets.BINTRAY_ORG}}
+        run: ./gradlew bintrayUpload
