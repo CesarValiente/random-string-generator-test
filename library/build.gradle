@@ -68,7 +68,7 @@ bintray {
     user = System.getenv("bintrayUser")
     key = System.getenv("bintrayKey")
     publications = ['CesarTestOrg']
-    publish = false
+    publish = true
     pkg {
         repo = 'RandomStringGenerator'
         name = 'library'
