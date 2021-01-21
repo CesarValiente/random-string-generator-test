@@ -41,7 +41,7 @@ jobs:
         run: ./gradlew testDebugUnitTest
       - name: lint
         run: ./gradlew lintDebug
-  publish library 01:
+  publish-library-01:
     needs: build
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
@@ -59,7 +59,7 @@ jobs:
           bintrayKey: ${{secrets.BINTRAY_KEY}}
           bintrayOrg: ${{secrets.BINTRAY_ORG}}
         run: ./gradlew :library:bintrayUpload
-  publish library 02:
+  publish-library-02:
     needs: build
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
