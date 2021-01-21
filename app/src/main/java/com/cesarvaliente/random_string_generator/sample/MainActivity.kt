@@ -2,6 +2,7 @@ package com.cesarvaliente.random_string_generator.sample
 
 import android.app.Activity
 import android.os.Bundle
+import com.cesarvaliente.random_pair_names_generator.PairNamesGenerator
 import com.cesarvaliente.random_string_generator.library.StringGenerator
 import com.cesarvaliente.random_string_generator.sample.databinding.ActivityMainBinding
 
@@ -15,9 +16,14 @@ class MainActivity : Activity() {
         val view = binding.root
         setContentView(view)
 
-        binding.stringText.text = StringGenerator.giveMeOne()
-        binding.stringBtn.setOnClickListener {
-            binding.stringText.text = StringGenerator.giveMeOne()
+        binding.randomStringText.text = StringGenerator.giveMeOne()
+        binding.randomStringBtn.setOnClickListener {
+            binding.randomStringText.text = StringGenerator.giveMeOne()
+        }
+
+        binding.randomPairNamesText.text = PairNamesGenerator.giveMeOne()
+        binding.randomPairNamesBtn.setOnClickListener {
+            binding.randomPairNamesText.text = PairNamesGenerator.giveMeOne()
         }
     }
 }
