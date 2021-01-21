@@ -60,4 +60,5 @@ jobs:
       - name: library 01 Bintray publish
         run: ./gradlew :library:bintrayUpload
       - name: library 02 Bintray publish
+        if: ${{ always() }}
         run: ./gradlew :library-aaa:bintrayUpload
