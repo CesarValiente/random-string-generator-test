@@ -1,3 +1,4 @@
+include ':library-aaa'
 include ':library'
 include ':app'
 rootProject.name = "random-string-generator"
