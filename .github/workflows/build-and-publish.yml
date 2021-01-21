@@ -53,9 +53,15 @@ jobs:
           java-version: 1.8
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
-      - name: Bintray publish
+      - name: library 01 Bintray publish
         env:
           bintrayUser: ${{secrets.BINTRAY_USER}}
           bintrayKey: ${{secrets.BINTRAY_KEY}}
           bintrayOrg: ${{secrets.BINTRAY_ORG}}
-        run: ./gradlew bintrayUpload
+        run: ./gradlew :library:bintrayUpload
+      - name: library 02 Bintray publish
+        env:
+          bintrayUser: ${{secrets.BINTRAY_USER}}
+          bintrayKey: ${{secrets.BINTRAY_KEY}}
+          bintrayOrg: ${{secrets.BINTRAY_ORG}}
+        run: ./gradlew :library-aaa:bintrayUpload
