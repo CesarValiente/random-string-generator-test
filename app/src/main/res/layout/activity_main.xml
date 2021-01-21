@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/string_text"
+        android:id="@+id/random_string_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
@@ -16,11 +16,30 @@
         tools:text="Hello world!" />
 
     <Button
-        android:id="@+id/string_btn"
+        android:id="@+id/random_string_btn"
         android:name="Give me a new name!"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/give_me_a_new_string"
+        android:textSize="30sp" />
+
+
+    <TextView
+        android:id="@+id/random_pair_names_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        tools:text="Hello world 2!" />
+
+    <Button
+        android:id="@+id/random_pair_names_btn"
+        android:name="Give me a new name!"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/give_me_pair_new_names"
         android:textSize="30sp" />
 
 </LinearLayout>
