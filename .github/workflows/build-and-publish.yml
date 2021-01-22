@@ -2,6 +2,9 @@
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-gradle
 
 name: Build and publish
+# This workflow build and publish the different libraries the project has.
+# Every library publication has its own job, so if one fails the other can run, and we can see them all
+# individually in Github Actions view.
 
 on:
   push:
