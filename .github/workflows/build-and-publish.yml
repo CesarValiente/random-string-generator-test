@@ -7,9 +7,8 @@ name: Build and publish
 # individually in Github Actions view.
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
+  push:
     branches: [ main ]
   workflow_dispatch:
     inputs:
