@@ -66,14 +66,14 @@ afterEvaluate {
 }
 
 bintray {
-    user = getPropertyValue("bintrayUser")
-    key = getPropertyValue("bintrayKey")
+    user = getPropertyValue("BINTRAY_USER")
+    key = getPropertyValue("BINTRAY_KEY")
     publications = ['CesarTestOrg']
     publish = false
     pkg {
         repo = 'RandomPairNamesGenerator'
         name = 'library_names_gen'
-        userOrg = getPropertyValue("bintrayOrg")
+        userOrg = getPropertyValue("BINTRAY_ORG")
         licenses = ['MIT']
         version {
             name = android.defaultConfig.versionName

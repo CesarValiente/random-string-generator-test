@@ -65,14 +65,14 @@ afterEvaluate {
 }
 
 bintray {
-    user = System.getenv("bintrayUser")
-    key = System.getenv("bintrayKey")
+    user = System.getenv("BINTRAY_USER")
+    key = System.getenv("BINTRAY_KEY")
     publications = ['CesarTestOrg']
     publish = true
     pkg {
         repo = 'RandomStringGenerator'
         name = 'library'
-        userOrg = System.getenv("bintrayOrg")
+        userOrg = System.getenv("BINTRAY_ORG")
         licenses = ['MIT']
         version {
             name = android.defaultConfig.versionName
