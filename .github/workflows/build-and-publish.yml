@@ -13,7 +13,7 @@ on:
   workflow_dispatch:
     inputs:
       name:
-        description: 'manual build trigger sub_main_a branch'
+        description: 'manual build trigger sub_main_a branch --- sub_main_a_01'
       home:
         description: 'location'
         required: false
