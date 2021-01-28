@@ -44,6 +44,7 @@ jobs:
         run: ./gradlew testDebugUnitTest
       - name: lint
         run: ./gradlew lintDebug
+
   publish-library-01:
     needs: build
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -58,10 +59,11 @@ jobs:
         run: chmod +x gradlew
       - name: library 01 Bintray publish
         env:
-          bintrayUser: ${{secrets.BINTRAY_USER}}
-          bintrayKey: ${{secrets.BINTRAY_KEY}}
-          bintrayOrg: ${{secrets.BINTRAY_ORG}}
+          BINTRAY_USER: ${{secrets.BINTRAY_USER}}
+          BINTRAY_KEY: ${{secrets.BINTRAY_KEY}}
+          BINTRAY_ORG: ${{secrets.BINTRAY_ORG}}
         run: ./gradlew :library:bintrayUpload
+
   publish-library-02:
     needs: build
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -76,7 +78,7 @@ jobs:
         run: chmod +x gradlew
       - name: library 02 Bintray publish
         env:
-          bintrayUser: ${{secrets.BINTRAY_USER}}
-          bintrayKey: ${{secrets.BINTRAY_KEY}}
-          bintrayOrg: ${{secrets.BINTRAY_ORG}}
+          BINTRAY_USER: ${{secrets.BINTRAY_USER}}
+          BINTRAY_KEY: ${{secrets.BINTRAY_KEY}}
+          BINTRAY_ORG: ${{secrets.BINTRAY_ORG}}
         run: ./gradlew :library-aaa:bintrayUpload

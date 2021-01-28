@@ -25,3 +25,12 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+String getPropertyValue(String property) {
+    def localPropertyFound = project.hasProperty(property)
+    if (localPropertyFound) {
+        return project.getProperties().get(property)
+    } else {
+        return System.getenv(property)
+    }
+}
