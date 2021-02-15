@@ -46,7 +46,6 @@ jobs:
 
   publish-library-01:
     needs: build
-    if: github.event_name == 'push' && github.ref == 'refs/heads/release'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -65,7 +64,6 @@ jobs:
 
   publish-library-02:
     needs: build
-    if: github.event_name == 'push' && github.ref == 'refs/heads/release'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
