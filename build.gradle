@@ -19,6 +19,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        mavenCentral()
     }
 }
 
@@ -28,9 +29,12 @@ task clean(type: Delete) {
 
 String getPropertyValue(String property) {
     def localPropertyFound = project.hasProperty(property)
+    def envProperty = System.getenv(property)
     if (localPropertyFound) {
         return project.getProperties().get(property)
+    } else if (envProperty != null) {
+        return envProperty
     } else {
-        return System.getenv(property)
+        return "NO_VALUE"
     }
 }

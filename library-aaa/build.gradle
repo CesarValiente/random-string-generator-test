@@ -13,7 +13,7 @@ android {
         minSdkVersion 29
         targetSdkVersion 30
         versionCode 1
-        versionName "0.0.3"
+        versionName "0.0.4-internal"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -66,14 +66,14 @@ afterEvaluate {
 }
 
 bintray {
-    user = getPropertyValue("BINTRAY_USER")
-    key = getPropertyValue("BINTRAY_KEY")
+    user = getPropertyValue("BINTRAY_USER_TEST")
+    key = getPropertyValue("BINTRAY_KEY_TEST")
     publications = ['CesarTestOrg']
     publish = false
     pkg {
         repo = 'RandomPairNamesGenerator'
         name = 'library_names_gen'
-        userOrg = getPropertyValue("BINTRAY_ORG")
+        userOrg = getPropertyValue("BINTRAY_ORG_TEST")
         licenses = ['MIT']
         version {
             name = android.defaultConfig.versionName
