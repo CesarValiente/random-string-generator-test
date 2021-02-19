@@ -37,9 +37,9 @@ jobs:
         run: chmod +x gradlew
       - name: clean
         run: ./gradlew clean
-#      - name: assemble debug
-#        run: ./gradlew assembleDebug
-#      - name: unit tests
-#        run: ./gradlew testDebugUnitTest
-#      - name: lint
-#        run: ./gradlew lintDebug
+      - name: assemble debug
+        run: ./gradlew assembleDebug
+      - name: unit tests
+        run: ./gradlew testDebugUnitTest
+      - name: lint
+        run: ./gradlew lintDebug
