@@ -18,7 +18,7 @@ version = PUBLISH_VERSION
 
 ext["signing.keyId"] = getPropertyValue("SIGNING_KEY_ID")
 ext["signing.password"] = getPropertyValue("SIGNING_PASSWORD")
-ext["signing.secretKeyRingFile"] = getPropertyValue("SIGNING_SCRET_FILE")
+ext["signing.secretKeyRingFile"] = getPropertyValue("SIGNING_SECRET_FILE")
 ext["mavenUser"] = getPropertyValue("MAVEN_USER")
 ext["mavenPassword"] = getPropertyValue("MAVEN_PASSWD")
 
