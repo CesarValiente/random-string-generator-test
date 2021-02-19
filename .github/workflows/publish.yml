@@ -57,9 +57,9 @@ jobs:
         run: chmod +x gradlew
       - name: library 01 Bintray publish
         env:
-          BINTRAY_USER: ${{secrets.BINTRAY_USER_TEST}}
-          BINTRAY_KEY: ${{secrets.BINTRAY_KEY_TEST}}
-          BINTRAY_ORG: ${{secrets.BINTRAY_ORG_TEST}}
+          BINTRAY_USER_TEST: ${{secrets.BINTRAY_USER_TEST}}
+          BINTRAY_KEY_TEST: ${{secrets.BINTRAY_KEY_TEST}}
+          BINTRAY_ORG_TEST: ${{secrets.BINTRAY_ORG_TEST}}
         run: ./gradlew :library:bintrayUpload
 
   publish-library-02:
@@ -75,7 +75,7 @@ jobs:
         run: chmod +x gradlew
       - name: library 02 Bintray publish
         env:
-          BINTRAY_USER: ${{secrets.BINTRAY_USER_TEST}}
-          BINTRAY_KEY: ${{secrets.BINTRAY_KEY_TEST}}
-          BINTRAY_ORG: ${{secrets.BINTRAY_ORG_TEST}}
+          BINTRAY_USER_TEST: ${{secrets.BINTRAY_USER_TEST}}
+          BINTRAY_KEY_TEST: ${{secrets.BINTRAY_KEY_TEST}}
+          BINTRAY_ORG_TEST: ${{secrets.BINTRAY_ORG_TEST}}
         run: ./gradlew :library-aaa:bintrayUpload
