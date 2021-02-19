@@ -7,8 +7,6 @@ name: publish-mavencentral
 # individually in Github Actions view.
 
 on:
-  #  release:
-  #    types: [published]
   pull_request:
   workflow_dispatch:
     inputs:
