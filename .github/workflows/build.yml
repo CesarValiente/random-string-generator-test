@@ -6,7 +6,7 @@ name: build
 # Every library publication has its own job, so if one fails the other can run, and we can see them all
 # individually in Github Actions view.
 
-#on:
+on:
   pull_request:
   push:
     branches: [ main ]
