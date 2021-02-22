@@ -1,7 +1,7 @@
 # This workflow will build a Java project with Gradle
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-gradle
 
-name: publish
+name: publish-bintray
 # This workflow builds and publishes the different artifacts the project has..
 # Every library publication has its own job, so if one fails the other can run, and we can see them all
 # individually in Github Actions view.
@@ -19,7 +19,7 @@ on:
         required: false
 
 jobs:
-  build:
+  build-bintray:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -57,9 +57,9 @@ jobs:
         run: chmod +x gradlew
       - name: library 01 Bintray publish
         env:
-          BINTRAY_USER: ${{secrets.BINTRAY_USER_TEST}}
-          BINTRAY_KEY: ${{secrets.BINTRAY_KEY_TEST}}
-          BINTRAY_ORG: ${{secrets.BINTRAY_ORG_TEST}}
+          BINTRAY_USER_TEST: ${{secrets.BINTRAY_USER_TEST}}
+          BINTRAY_KEY_TEST: ${{secrets.BINTRAY_KEY_TEST}}
+          BINTRAY_ORG_TEST: ${{secrets.BINTRAY_ORG_TEST}}
         run: ./gradlew :library:bintrayUpload
 
   publish-library-02:
@@ -75,7 +75,7 @@ jobs:
         run: chmod +x gradlew
       - name: library 02 Bintray publish
         env:
-          BINTRAY_USER: ${{secrets.BINTRAY_USER_TEST}}
-          BINTRAY_KEY: ${{secrets.BINTRAY_KEY_TEST}}
-          BINTRAY_ORG: ${{secrets.BINTRAY_ORG_TEST}}
+          BINTRAY_USER_TEST: ${{secrets.BINTRAY_USER_TEST}}
+          BINTRAY_KEY_TEST: ${{secrets.BINTRAY_KEY_TEST}}
+          BINTRAY_ORG_TEST: ${{secrets.BINTRAY_ORG_TEST}}
         run: ./gradlew :library-aaa:bintrayUpload

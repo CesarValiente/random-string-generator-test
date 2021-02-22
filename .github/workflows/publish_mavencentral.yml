@@ -1,14 +1,13 @@
 # This workflow will build a Java project with Gradle
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-gradle
 
-name: publish
+name: publish-mavencentral
 # This workflow builds and publishes the different artifacts the project has..
 # Every library publication has its own job, so if one fails the other can run, and we can see them all
 # individually in Github Actions view.
 
 on:
-  release:
-    types: [published]
+  pull_request:
   workflow_dispatch:
     inputs:
       name:
@@ -18,7 +17,7 @@ on:
         required: false
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -37,11 +36,11 @@ jobs:
       # Base64 decodes and pipes the GPG key content into the secret file
       - name: Prepare environment
         env:
-          GPG_KEY_CONTENTS: ${{ secrets.SIGNING_SECRET_KEY }}
-          SIGNING_SECRET_KEY_RING_FILE: ${{ secrets.SIGNING_SECRET_FILE }}
+          SIGNING_SECRET_KEY: ${{ secrets.SIGNING_SECRET_KEY }}
+          SIGNING_SECRET_FILE: ${{ secrets.SIGNING_SECRET_FILE }}
         run: |
           git fetch --unshallow
-          sudo bash -c "echo 'SIGNING_SECRET_KEY' | base64 -d > 'SIGNING_SECRET_FILE'"
+          sudo bash -c "echo '$SIGNING_SECRET_KEY' | base64 -d > '$SIGNING_SECRET_FILE'"
 
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
@@ -61,8 +60,8 @@ jobs:
       - name: Publish to MavenCentral
         run: ./gradlew :library:publishCesarMavenTestPublicationToMavencentralRepository --max-workers 1
         env:
-          OSSRH_USERNAME: ${{ secrets.MAVEN_USER }}
-          OSSRH_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
+          MAVEN_USER: ${{ secrets.MAVEN_USER }}
+          MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
           SIGNING_KEY_ID: ${{ secrets.SIGNING_KEY_ID }}
           SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
-          SIGNING_SECRET_KEY_RING_FILE: ${{ secrets.SIGNING_SECRET_FILE }}
+          SIGNING_SECRET_FILE: ${{ secrets.SIGNING_SECRET_FILE }}
