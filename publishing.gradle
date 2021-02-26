@@ -4,13 +4,8 @@ apply plugin: 'signing'
 
 task androidSourcesJar(type: Jar) {
     archiveClassifier.set('sources')
-    if (project.plugins.findPlugin("com.android.library")) {
-        from android.sourceSets.main.java.srcDirs
-        from android.sourceSets.main.kotlin.srcDirs
-    } else {
-        from sourceSets.main.java.srcDirs
-        from sourceSets.main.kotlin.srcDirs
-    }
+    from android.sourceSets.main.java.srcDirs
+    from android.sourceSets.main.kotlin.srcDirs
 }
 
 group = PUBLISH_GROUP_ID
@@ -25,20 +20,18 @@ ext["mavenPassword"] = getPropertyValue("MAVEN_PASSWORD")
 publishing {
     publications {
         CesarMavenTest(MavenPublication) {
+            //Define library main info. Each build.gradle library file define its own data.
             groupId PUBLISH_GROUP_ID
             artifactId PUBLISH_ARTIFACT_ID
             version PUBLISH_VERSION
 
-            if (project.plugins.findPlugin("com.android.library")) {
-                artifact("$buildDir/outputs/aar/${project.getName()}-release.aar")
-            } else {
-                artifact("$buildDir/libs/${project.getName()}-${version}.jar")
-            }
+            //Set the artifact files
+            artifact("$buildDir/outputs/aar/${project.getName()}-release.aar")
             artifact(androidSourcesJar)
 
             pom {
                 name = PUBLISH_ARTIFACT_ID
-                description = 'Library 1 publication'
+                description = 'Library randon-strings publication'
                 url = 'https://github.com/CesarValiente/random-string-generator-test'
                 licenses {
                     license {

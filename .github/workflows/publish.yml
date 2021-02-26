@@ -9,7 +9,7 @@ name: publish-bintray
 on:
   push:
     tags:
-      - '*'
+      - 'bintray*'
   workflow_dispatch:
     inputs:
       name:
