@@ -19,14 +19,14 @@ on:
         required: false
 
 jobs:
-  publish-library-A:
+  publish-matrix:
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
         projects: [
-          ":library:",
-          ":library-aa:"
+          :library:,
+          :library-aa:
         ]
       fail-fast: false
 
