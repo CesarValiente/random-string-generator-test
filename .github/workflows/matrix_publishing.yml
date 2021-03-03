@@ -24,8 +24,7 @@ jobs:
 
     strategy:
       matrix:
-        projects: [
-          :library, :library-aa]
+        projects: [:library, :library-aa]
       fail-fast: false
 
     steps:
