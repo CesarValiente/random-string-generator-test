@@ -48,7 +48,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: clean
-        run: ./gradlew clean
+        run: ./gradlew :library:clean
 
         # Builds the release artifacts of the library
       - name: Release build
@@ -56,7 +56,7 @@ jobs:
 
         # Generates other artifacts (javadocJar is optional)
       - name: Source jar
-        run: ./gradlew androidSourcesJar
+        run: ./gradlew :library:androidSourcesJar
 
         # Runs upload, and then closes & releases the repository
       - name: Publish to MavenCentral
